@@ -1,0 +1,40 @@
+.top-bar {
+  background-color: $nav-background;
+
+  ul {
+    background-color: $nav-background;
+  }
+
+  .menu-text {
+    color: $nav-text;
+
+    .icon {
+      width: $icon-width;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .icon-wrap {
+    padding: 0;
+    margin: 0;
+
+    .icon {
+      width: $icon-width;
+      border-radius: 50%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .menu {
+    .active-link {
+      font-weight: $nav-link-active;
+    }
+  }
+}
