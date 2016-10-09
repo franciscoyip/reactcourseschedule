@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 const PORT = process.env.PORT || 8080;
 
-//Some proxy for openWeatherMap
 /*
 app.use(function(req, res, next){
   if(req.headers['x-forwarded-proto'] === 'https'){
