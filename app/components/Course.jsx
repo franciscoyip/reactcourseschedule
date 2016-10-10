@@ -1,14 +1,9 @@
 var React = require('react');
 var {connect} = require('react-redux');
-var moment = require('moment');
 var actions = require('actions');
 
 export var Course = React.createClass({
-  /*
-  propTypes: {
-    onToggle: React.PropTypes.func.isRequired,
-  },
-  */
+
   render: function(){
     var {name, registered, author, time, days, id, imageid, dispatch} = this.props;
     var courseClassName = registered ? 'course course-registered' : 'course';
@@ -29,7 +24,7 @@ export var Course = React.createClass({
 
     return (
       <div className={courseClassName} onClick={function(){
-            dispatch(actions.registerCourse(id));
+            dispatch(actions.toggleCourseRegistration(id));
         }}>
         <div>
           <input type="checkbox" checked={registered}/>

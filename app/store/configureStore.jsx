@@ -1,12 +1,14 @@
 var redux = require('redux');
 var thunk = require('redux-thunk').default;
-var {searchTextReducer, showRegisteredReducer, coursesReducer} = require('reducers');
+var {searchTextReducer, showRegisteredReducer, coursesReducer, scheduleReducer, errorMessageReducer} = require('reducers');
 
 export var configure = (initialState={})=>{
   var reducer = redux.combineReducers({
     searchText: searchTextReducer,
     showRegistered: showRegisteredReducer,
-    courses: coursesReducer
+    courses: coursesReducer,
+    schedule: scheduleReducer,
+    errorMessage: errorMessageReducer
   });
 
   //weird

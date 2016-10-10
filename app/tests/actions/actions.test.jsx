@@ -38,4 +38,15 @@ describe('Actions', function(){
       expect(resultAction).toEqual(action);
   });
 
+  it('should generate set error message action', function(){
+      var action = {
+        type: 'SET_ERROR_MSG',
+        errorMessage: 'Hello Hello'
+      };
+
+      var resultAction = actions.setErrorMessage(action.errorMessage);
+
+      expect(resultAction).toEqual(action);
+  });
+
 });

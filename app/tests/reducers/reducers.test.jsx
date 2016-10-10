@@ -25,6 +25,17 @@ describe('Reducers', function(){
     });
   });
 
+  describe('errorMessageReducer', ()=>{
+    it('should set errorMessage', ()=>{
+      var action = {
+        type: 'SET_ERROR_MSG',
+        errorMessage:'Hello World'
+      };
+      var response = reducers.errorMessageReducer(df(''), df(action));
+      expect(response).toEqual(action.errorMessage);
+    });
+  });
+
   describe('todosReducer', ()=>{
     /*
     it('should add new todo', ()=>{
