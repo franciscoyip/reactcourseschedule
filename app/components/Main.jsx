@@ -8,9 +8,7 @@ var Main = React.createClass({
       <div>
         <Nav/>
         <div className="row">
-          <div className="small-11 small-centered medium-11 medium-centered large-8 large-centered columns">
-            {this.props.children}
-          </div>
+          {this.props.children}
         </div>
 
       </div>

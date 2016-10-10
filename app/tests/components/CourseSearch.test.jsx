@@ -10,7 +10,7 @@ var TestUtils = require('react-addons-test-utils');
 //actual Component
 import {CourseSearch} from 'CourseSearch';
 
-describe('Search', function(){
+describe('CourseSearch', function(){
   it('should exist', function(){
     expect(CourseSearch).toExist();
   });

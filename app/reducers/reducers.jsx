@@ -71,25 +71,53 @@ var defaultSchedule = getDefaultSchedule();
 
 export var scheduleReducer = (state = defaultSchedule, action)=>{
   switch( action.type ){
+
     case 'ADD_COURSE_TO_SCHEDULE':
       var dayIndexes = action.course.dayIndex;
-      var newstate = [...state];
+      var newSchedule = [...state];
       dayIndexes.forEach(function(dayIndex){
-        newstate[dayIndex].push(action.course);
+        newSchedule[dayIndex].push(action.course);
       });
-      return newstate;
+      return newSchedule;
+
     case 'REMOVE_COURSE_FROM_SCHEDULE':
       var dayIndexes = action.course.dayIndex;
-      var newstate = [...state];
+      var newSchedule = [...state];
       dayIndexes.forEach(function(dayIndex){
-          var index = newstate[dayIndex].findIndex((course)=>{
+          var index = newSchedule[dayIndex].findIndex((course)=>{
             return course.id === action.course.id;
           });
           if(index !== -1){
-            newstate[dayIndex].splice(index, 1);
+            newSchedule[dayIndex].splice(index, 1);
           }
       });
-      return newstate;
+      return newSchedule;
+
+    default:
+      return state;
+      //break;
+  }
+};
+
+export var scheduleNameReducer = (state = 'Editable Schedule Name', action)=>{
+  var type = action.type;
+  switch (type) {
+    case 'SET_SCHEDULE_NAME':
+      //if empty string, don't update
+      return action.scheduleName ? action.scheduleName : state;
+      //break;
+    default:
+      return state;
+      //break;
+  }
+};
+
+export var editScheduleNameReducer = (state = false, action)=>{
+  var type = action.type;
+  switch (type) {
+    case 'TOGGLE_EDIT_SCHEDULENAME':
+      return !state;
+      //break;
     default:
       return state;
       //break;
@@ -100,6 +128,9 @@ export var errorMessageReducer = (state = '', action)=>{
   var type = action.type;
   switch (type) {
     case 'SET_ERROR_MSG':
+      if(!action.errorMessage){
+        return '';
+      }
       return action.errorMessage + '_'+Date.now();
       //break;
     default:

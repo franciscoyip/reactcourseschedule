@@ -22,13 +22,19 @@ export var addCourse = (id)=>{
   };
 };
 
+export var toggleEditScheduleName = ()=>{
+  return {
+    type: 'TOGGLE_EDIT_SCHEDULENAME'
+  };
+};
+
 export var startLoadCourses = ()=>{
 
   var url = "/data/catalog.json";
 
   return (dispatch, getState) =>{
     function success(res){
-      console.log(res.data.courses);
+      //console.log(res.data.courses);
       dispatch(addCourses(res.data.courses));
     };
 
@@ -104,6 +110,14 @@ export var setErrorMessage = (msg) =>{
   };
 }
 
+export var setScheduleName = (scheduleName) => {
+  return {
+    type: 'SET_SCHEDULE_NAME',
+    scheduleName
+  }
+};
+
+//Helper Functions to validate conflict
 var haveNoConflict = function(newCourse, schedule){
   var {dayIndex, timeIndex} = newCourse;
   var start_new = moment().hour(timeIndex[0]);
@@ -118,5 +132,4 @@ var haveNoConflict = function(newCourse, schedule){
       return start_new.isSameOrAfter(end_exist) || end_new.isSameOrBefore(start_exist);
     });
   });
-
 }

@@ -3,10 +3,15 @@ var ReactDOM = require('react-dom');
 var ReactDOMServer = require('react-dom/server');
 
 var {connect} = require('react-redux');
+var actions = require('actions');
 
 export var ErrorModal = React.createClass({
+  componentWillUnmount: function(){
+    var {dispatch} = this.props;
+    dispatch(actions.setErrorMessage(''));
+  },
   renderModal: function(){
-    var {errorMessage, dispatch} = this.props;
+    var {errorMessage} = this.props;
 
     if(!errorMessage || errorMessage.length <= 0){return;}
     errorMessage = errorMessage.split('_')[0]

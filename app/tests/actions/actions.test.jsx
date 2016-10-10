@@ -27,17 +27,6 @@ describe('Actions', function(){
       expect(resultAction).toEqual(action);
   });
 
-  it('should generate register course action', function(){
-      var action = {
-        type: 'REGISTER_COURSE',
-        id: 11
-      };
-
-      var resultAction = actions.registerCourse(action.id);
-
-      expect(resultAction).toEqual(action);
-  });
-
   it('should generate set error message action', function(){
       var action = {
         type: 'SET_ERROR_MSG',

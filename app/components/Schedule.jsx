@@ -1,10 +1,16 @@
 var React = require('react');
 
+import ScheduleName from 'ScheduleName';
+import ScheduleTable from 'ScheduleTable';
+
 var Schedule = React.createClass({
   render: function(){
     return (
-      <div>
-        <h1 className="page-title">Schedule</h1>
+      <div className="small-11 small-centered medium-11 medium-centered large-11 large-centered columns">
+        <div className="schedule">
+          <ScheduleName/>
+          <ScheduleTable/>
+        </div>
       </div>
     );
   },

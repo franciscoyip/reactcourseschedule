@@ -1,6 +1,7 @@
 var redux = require('redux');
 var thunk = require('redux-thunk').default;
-var {searchTextReducer, showRegisteredReducer, coursesReducer, scheduleReducer, errorMessageReducer} = require('reducers');
+var {searchTextReducer, showRegisteredReducer, coursesReducer,
+  scheduleReducer, scheduleNameReducer, editScheduleNameReducer, errorMessageReducer} = require('reducers');
 
 export var configure = (initialState={})=>{
   var reducer = redux.combineReducers({
@@ -8,6 +9,8 @@ export var configure = (initialState={})=>{
     showRegistered: showRegisteredReducer,
     courses: coursesReducer,
     schedule: scheduleReducer,
+    scheduleName: scheduleNameReducer,
+    editScheduleName: editScheduleNameReducer,
     errorMessage: errorMessageReducer
   });
 

@@ -32,7 +32,7 @@ describe('Reducers', function(){
         errorMessage:'Hello World'
       };
       var response = reducers.errorMessageReducer(df(''), df(action));
-      expect(response).toEqual(action.errorMessage);
+      expect(response.split('_')[0]).toEqual(action.errorMessage);
     });
   });
 
